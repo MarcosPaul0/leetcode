@@ -1,15 +1,15 @@
 const fs = require("fs");
 
 class Test {
-  static Main() {
-    Test.FinalSum();
-    Test.BelongToFibonacci();
-    Test.ProcessInvoicing();
-    Test.Percentage();
-    Test.ReverseString();
+  static execute() {
+    this.finalSum();
+    this.belongToFibonacci();
+    this.processInvoicing();
+    this.percentage();
+    this.reverseString();
   }
 
-  static FinalSum() {
+  static finalSum() {
     let index = 13;
     let sum = 0;
     let k = 0;
@@ -22,7 +22,7 @@ class Test {
     console.log(`O valor final será ${sum}`);
   }
 
-  static BelongToFibonacci() {
+  static belongToFibonacci() {
     let value = 5;
 
     let currentValue = 0;
@@ -43,7 +43,7 @@ class Test {
     console.log(`${value} NÃO pertence a sequência fibonacci.`);
   }
 
-  static ProcessInvoicing() {
+  static processInvoicing() {
     const data = fs.readFileSync(__dirname + "/data.json", "utf8");
     const result = JSON.parse(data);
 
@@ -64,7 +64,11 @@ class Test {
     );
   }
 
-  static Percentage() {
+  static formatPercentage(percentage) {
+    return (percentage * 100).toFixed(2) + "%";
+  }
+
+  static percentage() {
     const SP = 7836.43;
     const RJ = 36678.66;
     const MG = 29229.88;
@@ -73,11 +77,11 @@ class Test {
 
     const total = SP + RJ + MG + ES + others;
 
-    const SPPercentage = (SP / total) * 100;
-    const RJPercentage = (RJ / total) * 100;
-    const MGPercentage = (MG / total) * 100;
-    const ESPercentage = (ES / total) * 100;
-    const othersPercentage = (others / total) * 100;
+    const SPPercentage = this.formatPercentage(SP / total);
+    const RJPercentage = this.formatPercentage(RJ / total);
+    const MGPercentage = this.formatPercentage(MG / total);
+    const ESPercentage = this.formatPercentage(ES / total);
+    const othersPercentage = this.formatPercentage(others / total);
 
     console.log(`SP = ${SPPercentage}%`);
     console.log(`RJ = ${RJPercentage}%`);
@@ -86,7 +90,7 @@ class Test {
     console.log(`Outros = ${othersPercentage}%`);
   }
 
-  static ReverseString() {
+  static reverseString() {
     const test = "Teste";
     let reversed = "";
 
@@ -98,4 +102,4 @@ class Test {
   }
 }
 
-Test.Main();
+Test.execute();
