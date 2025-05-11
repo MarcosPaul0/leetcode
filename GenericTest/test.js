@@ -2,10 +2,23 @@ const fs = require("fs");
 
 class Test {
   static execute() {
+    console.log("Questão 01\n\n");
     this.finalSum();
+    console.log("\n\n------------------------------\n\n");
+
+    console.log("Questão 02\n\n");
     this.belongToFibonacci();
+    console.log("\n\n------------------------------\n\n");
+
+    console.log("Questão 03\n\n");
     this.processInvoicing();
+    console.log("\n\n------------------------------\n\n");
+
+    console.log("Questão 04\n\n");
     this.percentage();
+    console.log("\n\n------------------------------\n\n");
+
+    console.log("Questão 05\n\n");
     this.reverseString();
   }
 
